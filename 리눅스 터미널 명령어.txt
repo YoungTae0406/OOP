@@ -1,0 +1,35 @@
+리눅스 터미널 명령어 모음
+mkdir [옵션] [폴더명] : 폴더 생성
+cd [디렉토리명] : 작업 디렉토리 변경
+pwd : 현재 작업 디렉토리를 절대 경로 명으로 출력
+
+g++ 컴파일 명령어
+g++ -o test [이름].cpp
+./test
+
+make하는 과정
+g++ -c [이름].cpp
+
+.SUFFIXES:.cpp .o
+
+OBJECTS = main.o print.o student_id.o
+
+CXX = g++       -> 컴파일러 설정
+CPPFLAGS = -c
+
+TARGET = test    -> 명령어가 수행되어 나온 결과파일
+
+$(TARGET) : $(OBJECTS)
+	$(CXX) -o $(TARGET) $(OBJECTS)
+
+clean : 
+	rm -rf $(OBJECTS) $(TARGET)
+
+main.o : main.cpp
+print.o : print.cpp
+student_id.o : student_id.cpp
+
+
+
+vim에서 파일 생성 명령어 : vi ~/[이름].확장자
+
